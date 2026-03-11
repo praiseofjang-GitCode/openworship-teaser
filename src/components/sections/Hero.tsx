@@ -1,9 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import ScrollReveal from "@/components/ui/ScrollReveal";
 import { useLocale } from "@/contexts/LocaleContext";
 
 const HERO_IMAGE =
@@ -24,42 +22,45 @@ export default function Hero() {
         />
         <div
           className="absolute inset-0 bg-primary-900/70"
+          style={{ backgroundColor: "rgba(15, 23, 42, 0.7)" }}
           aria-hidden
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-4xl px-4 py-20 text-center">
-        <ScrollReveal delay={0.1}>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl font-bold leading-tight text-white drop-shadow-md md:text-4xl lg:text-5xl"
+      <div
+        className="relative z-[100] mx-auto max-w-5xl px-4 py-20 text-center"
+        style={{ isolation: "isolate" }}
+      >
+        <h1
+          className="text-3xl font-bold leading-tight whitespace-pre-line md:text-4xl lg:text-5xl"
+          style={{
+            color: "#ffffff",
+            textShadow: "0 2px 8px rgba(0,0,0,0.8), 0 0 1px rgba(0,0,0,1)",
+          }}
+        >
+          {t("hero", "title")}
+        </h1>
+        <p
+          className="mt-6 text-lg md:text-xl whitespace-pre-line"
+          style={{
+            color: "rgba(255,255,255,0.95)",
+            textShadow: "0 1px 4px rgba(0,0,0,0.8)",
+          }}
+        >
+          {t("hero", "subtitle")}
+        </p>
+        <div className="mt-10">
+          <Button
+            size="lg"
+            className="bg-accent-600 text-white hover:bg-accent-500"
+            onClick={() => {
+              const el = document.getElementById("preregistration");
+              el?.scrollIntoView({ behavior: "smooth" });
+            }}
           >
-            {t("hero", "title")}
-            <br />
-            {t("hero", "titleLine2")}
-          </motion.h1>
-        </ScrollReveal>
-        <ScrollReveal delay={0.3}>
-          <p className="mt-6 text-lg text-white/90 md:text-xl">
-            {t("hero", "subtitle")}
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={0.5}>
-          <div className="mt-10">
-            <Button
-              size="lg"
-              className="bg-accent-600 text-white hover:bg-accent-500"
-              onClick={() => {
-                const el = document.getElementById("preregistration");
-                el?.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              {t("hero", "cta")}
-            </Button>
-          </div>
-        </ScrollReveal>
+            {t("hero", "cta")}
+          </Button>
+        </div>
       </div>
     </section>
   );

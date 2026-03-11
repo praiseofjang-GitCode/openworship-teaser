@@ -9,7 +9,10 @@ import { useLocale } from "@/contexts/LocaleContext";
 export default function SiteHeader() {
   const { t } = useLocale();
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-white/95 backdrop-blur-sm">
+    <header
+      className="sticky top-0 z-[200] border-b border-white/10 bg-white/95 backdrop-blur-sm"
+      style={{ isolation: "isolate", color: "#0f172a" }}
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <Logo layout="horizontal" />
         <nav className="flex items-center gap-3">

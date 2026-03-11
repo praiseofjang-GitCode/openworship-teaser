@@ -46,6 +46,48 @@ Next.js를 만든 Vercel에 올리면 설정이 거의 없고, 무료 플랜으�
 - 배포가 끝나면 `https://프로젝트이름.vercel.app` 형태의 URL이 생깁니다.
 - **Settings → Domains** 에서 본인 도메인(예: `teaser.openworship.com`)을 연결할 수 있습니다.
 
+### 3단계: 커스텀 도메인 연결 (GoDaddy 예: openworship.co)
+
+티저 사이트를 **openworship.co** (또는 **www.openworship.co**) 로 열리게 하려면 아래 순서대로 진행하면 됩니다.
+
+#### 1) Vercel에서 도메인 추가
+
+1. Vercel 대시보드 → **openworship-teaser** 프로젝트 선택.
+2. **Settings** → **Domains** 이동.
+3. **Add** 란에 `openworship.co` 입력 후 **Add**.
+4. 같은 방식으로 `www.openworship.co` 도메인도 추가 (선택).
+5. 추가한 각 도메인 옆에 Vercel이 **어떤 DNS 설정을 하라고 안내**하는지 확인합니다. (아래 2)에서 사용)
+
+#### 2) GoDaddy에서 DNS 설정
+
+1. [godaddy.com](https://www.godaddy.com) 로그인 → **My Products** → **openworship.co** 옆 **DNS** 클릭.
+2. **Records** 탭에서 아래와 같이 추가·수정합니다.
+
+| Type | Name | Value | TTL |
+|------|------|--------|-----|
+| **A** | `@` | `76.76.21.21` | 600 (또는 기본값) |
+| **CNAME** | `www` | `cname.vercel-dns.com` | 600 (또는 기본값) |
+
+- **루트 도메인 (openworship.co)**  
+  - Type: **A**  
+  - Name: **@** (또는 비워 두기, GoDaddy에 따라 다름)  
+  - Value: **76.76.21.21** (Vercel이 안내하는 IP가 다르면 그 값 사용)
+
+- **www (www.openworship.co)**  
+  - Type: **CNAME**  
+  - Name: **www**  
+  - Value: **cname.vercel-dns.com**
+
+3. 기존에 `@` 또는 `www` 에 대한 A/CNAME 레코드가 있으면 **삭제하거나** 위 값으로 **수정**합니다.
+4. 저장 후 **몇 분~최대 48시간** 정도 기다리면 전파됩니다. 보통 10~30분 내에 반영되는 경우가 많습니다.
+
+#### 3) Vercel에서 SSL 확인
+
+- **Settings → Domains** 에서 `openworship.co`, `www.openworship.co` 옆 상태가 **Valid Configuration** 이고, SSL이 자동 발급되면 완료입니다.
+- 브라우저에서 **https://openworship.co** 로 접속해 보면 됩니다.
+
+> **참고:** Vercel이 도메인 추가 시 화면에 표시하는 **정확한 IP 또는 CNAME 값**이 위와 다르면, 그때 안내하는 값으로 설정하세요.
+
 ### 참고
 
 - 저장소에 push 할 때마다 자동으로 다시 배포됩니다.

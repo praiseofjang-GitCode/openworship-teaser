@@ -12,9 +12,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap");
 
 :root {
-  --font-inter: "Inter", system-ui, -apple-system, sans-serif;
-  --font-pretendard: "Pretendard Variable", Pretendard, -apple-system,
-    BlinkMacSystemFont, system-ui, sans-serif;
+  --font-inter: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-pretendard: "Pretendard Variable", "Pretendard", -apple-system,
+    "Malgun Gothic", "Apple SD Gothic Neo", BlinkMacSystemFont, system-ui, sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
   --background: #fefefe;
   --foreground: #0f172a;
@@ -27,13 +27,15 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-background text-primary-900 antialiased;
+    @apply bg-background antialiased;
+    color: var(--foreground);
+    font-family: var(--font-inter);
   }
   /* English: refined modern sans */
   html[lang="en"] body {
     font-family: var(--font-inter);
   }
-  /* Korean: Pretendard */
+  /* Korean: Pretendard with safe fallbacks */
   html[lang="ko"] body {
     font-family: var(--font-pretendard);
   }

@@ -3,7 +3,7 @@ export type Locale = "en" | "ko";
 export const translations = {
   en: {
     hero: {
-      title: "The essence of worship unchanged,",
+      title: "The essence of worship unchanged,\npreparation deeper and faster",
       titleLine2: "preparation deeper and faster",
       subtitle:
         "Open Worship does not replace worship. We simplify the complex preparation process so you can focus more deeply on the essence of worship—as your worship preparation partner.",
@@ -114,10 +114,10 @@ export const translations = {
   },
   ko: {
     hero: {
-      title: "예배의 본질은 그대로,",
+      title: "예배의 본질은 그대로,\n준비는 더 깊고 빠르게",
       titleLine2: "준비는 더 깊고 빠르게",
       subtitle:
-        "오픈워십은 예배를 대신하지 않습니다. 예배의 본질에 더 깊이 집중할 수 있도록, 복잡한 준비 과정을 간소화하는 예배 준비 파트너입니다.",
+        "오픈워십은 예배를 대신하지 않습니다.\n예배의 본질에 더 깊이 집중할 수 있도록, 복잡한 준비 과정을 간소화하는 예배 준비 파트너입니다.",
       cta: "사전 알림 신청하기",
       imageAlt: "예배 분위기",
     },
