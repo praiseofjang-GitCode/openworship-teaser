@@ -1,0 +1,16 @@
+{
+  "name": "openworship-data-pipeline",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "step2": "node --experimental-vm-modules src/step2-dedup.js",
+    "step5": "node src/step5-validate.js",
+    "step6": "node src/step6-upsert.js",
+    "run-all": "node src/run-pipeline.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "dotenv": "^16.4.5"
+  }
+}
