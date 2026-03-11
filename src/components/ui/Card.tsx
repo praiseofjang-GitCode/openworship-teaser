@@ -21,7 +21,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
           ${hover ? "hover:shadow-lg" : ""}
           ${className}
         `}
-        {...props}
+        {...(props as React.ComponentPropsWithoutRef<typeof motion.div>)}
       >
         {children}
       </motion.div>
